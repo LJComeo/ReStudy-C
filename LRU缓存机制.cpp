@@ -27,17 +27,16 @@ public:
 		auto it = msi.find(key);
 		if (it == msi.end())
 		{
-			if (msi.size() < m_a)
-				msi.insert(pair<int, int>(key, value));
-			else
+			if (msi.size() == m_a)
 			{
 				msi.erase(msi[msi.begin()->first]);
 				msi.insert(pair<int, int>(key, value));
 			}
+			else
+				msi.insert(pair<int, int>(key, value));
 		}
 		else
 		{
-
 			msi.erase(key);
 			msi.insert(pair<int, int>(key, value));
 		}
